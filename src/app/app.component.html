@@ -1,22 +1,27 @@
 <h1>Password Generator</h1>
 <div>
   <label for="pw-length">Enter Password Length</label>
-  <input type="text" id="pw-length" />
+  <input type="text" id="pw-length" (input)="onChangeLength($event)" />
 </div>
 
 <div>
-  <label for="letters">Use Letters</label>
-  <input type="checkbox" id="letters" />
+  <label for="letters">Use Lowercase Letters</label>
+  <input type="checkbox" id="letters" (change)="onChangeUseLowercase()" />
+</div>
+
+<div>
+  <label for="letters">Use Uppercase Letters</label>
+  <input type="checkbox" id="letters" (change)="onChangeUseUppercase()" />
 </div>
 
 <div>
   <label for="numbers">Use Numbers</label>
-  <input type="checkbox" id="numbers" />
+  <input type="checkbox" id="numbers" (change)="onChangeUseNumbers()" />
 </div>
 
 <div>
   <label for="symbols">Use Symbols</label>
-  <input type="checkbox" id="symbols" />
+  <input type="checkbox" id="symbols" (change)="onChangeUseSpecials()" />
 </div>
 
 <div>
@@ -25,6 +30,5 @@
 
 <div>
   <label for="password">Your Password</label>
-  <input type="text" id="password" />
+  <input type="text" id="password" [value]="password" />
 </div>
-
