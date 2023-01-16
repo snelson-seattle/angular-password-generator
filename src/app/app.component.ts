@@ -131,8 +131,45 @@ export class AppComponent {
       generatedPassword += getRandom(characterSet);
     }
 
-    this.password = generatedPassword;
+    let lowerCount = 0;
+    let upperCount = 0;
+    let numberCount = 0;
+    let specialCount = 0;
+    for(let i = 0; i < generatedPassword.length; i++) {
+      if(lowercaseLetters.includes(generatedPassword[i])) {
+        lowerCount++;
+      }
 
+      if(uppercaseLetters.includes(generatedPassword[i])) {
+        upperCount++;
+      }
+
+      if(numericCharacters.includes(generatedPassword[i])) {
+        numberCount++;
+      }
+
+      if(specialCharacters.includes(generatedPassword[i])) {
+        specialCount++;
+      }      
+    }
+
+    if(this.includeLowers && lowerCount == 0) {
+      this.onButtonClick();
+    }
+
+    if(this.includeUppers && upperCount === 0) {
+      this.onButtonClick();
+    }
+
+    if(this.includeNumbers && numberCount === 0) {
+      this.onButtonClick();
+    }
+
+    if(this.includeSpecials && specialCount === 0) {
+      this.onButtonClick();
+    }
+
+    this.password = generatedPassword;
   }
 
   onChangeLength(event: Event) {
@@ -161,6 +198,5 @@ export class AppComponent {
   onChangeUseSpecials() {
     this.includeSpecials = !this.includeSpecials;
   }
-
 
 }
