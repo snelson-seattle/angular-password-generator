@@ -104,7 +104,7 @@ export class AppComponent {
   password = '';
 
   onButtonClick() {
-    this.password = "";
+    let generatedPassword = "";
     let characterSet: string[] = [];
 
     if(this.length === 0) {
@@ -128,8 +128,10 @@ export class AppComponent {
     }
 
     for(let i = 0; i < this.length; i++) {
-      this.password += getRandom(characterSet);
+      generatedPassword += getRandom(characterSet);
     }
+
+    this.password = generatedPassword;
 
   }
 
@@ -159,4 +161,6 @@ export class AppComponent {
   onChangeUseSpecials() {
     this.includeSpecials = !this.includeSpecials;
   }
+
+
 }
